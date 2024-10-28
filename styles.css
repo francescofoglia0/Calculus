@@ -1,6 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Font di iOS */
+    background-color: #121212; /* Sfondo scuro */
+    color: #ffffff; /* Testo chiaro */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,48 +10,73 @@ body {
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: #1e1e1e; /* Colore di sfondo più chiaro per il contenitore */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    max-width: 90%; /* Modifica qui per adattare alla larghezza dello schermo */
     text-align: center;
 }
 
 h1, h2 {
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff; /* Colore del testo */
 }
 
 .settings {
     margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    margin: 10px 0 5px;
-    color: #555;
+.label, .number-inputs label {
+    display: inline-block; /* Modificato per visualizzarli sulla stessa riga */
+    margin: 10px 5px 5px 0; /* Margine modificato per minore spazio */
+    color: #ffffff; /* Colore del testo */
+}
+
+.number-inputs {
+    display: flex; /* Utilizza il flexbox per disporre gli input sulla stessa riga */
+    justify-content: center; /* Centra gli input */
+    margin-bottom: 10px; /* Spazio tra le righe */
+}
+
+.short-input {
+    width: 60px; /* Larghezza ridotta per occupare meno spazio */
+    margin: 0 5px; /* Spazio tra gli input */
+    background-color: #2a2a2a; /* Sfondo scuro per gli input */
+    color: #ffffff; /* Testo chiaro per gli input */
+    border: 1px solid #444; /* Colore del bordo */
 }
 
 input, select {
     padding: 10px;
-    width: 100%;
+    width: 100%; /* Impostato su 100% per l'input di risposta */
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #444; /* Colore del bordo */
     border-radius: 5px;
+    background-color: #2a2a2a; /* Sfondo scuro per gli input */
+    color: #ffffff; /* Testo chiaro per gli input */
 }
 
 button {
     padding: 10px 20px;
-    background-color: #28a745;
-    color: #fff;
+    background-color: #007bff; /* Colore blu per i pulsanti generici */
+    color: #fff; /* Testo bianco per i pulsanti */
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
+button.generate, button.verify {
+    background-color: #28a745; /* Colore verde per i pulsanti "Genera esercizio" e "Verifica risposta" */
+    color: #fff; /* Testo bianco per i pulsanti verdi */
+}
+
+button.generate:hover, button.verify:hover {
+    background-color: #218838; /* Colore verde scuro al passaggio del mouse */
+}
+
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3; /* Colore più scuro al passaggio del mouse per pulsanti blu */
 }
 
 .operations button {
@@ -59,21 +85,17 @@ button:hover {
     font-size: 18px;
     width: 50px;
     height: 50px;
-    border: 2px solid #ddd;
+    border: 2px solid #444; /* Colore del bordo */
     border-radius: 5px;
     cursor: pointer;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: #2a2a2a; /* Sfondo scuro per i pulsanti delle operazioni */
+    color: #ffffff; /* Testo chiaro per i pulsanti delle operazioni */
 }
 
 .operations button.active {
-    background-color: #007bff;
+    background-color: #0056b3; /* Colore blu scuro per i pulsanti attivi */
     color: #fff;
-    border-color: #0056b3;
-}
-
-button:hover {
-    background-color: #218838;
+    border-color: #003d7a; /* Colore del bordo per i pulsanti attivi */
 }
 
 .exercise {
@@ -83,4 +105,5 @@ button:hover {
 #result {
     font-size: 18px;
     font-weight: bold;
+    color: #ffffff; /* Colore chiaro per i risultati */
 }

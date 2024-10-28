@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calcoli a Mente</title>
-        <link rel="stylesheet" href="styles.css">
-    
-        <!-- Meta tag per iOS per lanciare il sito a schermo intero -->
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <!-- Rimuove la barra di stato su iOS per un'esperienza più immersiva -->
-        <meta name="apple-mobile-web-app-status-bar-style" content="default">
-        <!-- Titolo visualizzato quando il sito è aggiunto alla schermata home -->
-        <meta name="apple-mobile-web-app-title" content="Calcoli a Mente">
-        <!-- Icona del sito quando aggiunto alla schermata home -->
-        <link rel="apple-touch-icon" href="icon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Meta tag per iOS per lanciare il sito a schermo intero -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Calcoli a Mente">
+    <link rel="apple-touch-icon" href="icon.png">
 </head>
-    
 <body>
     <div class="container">
         <h1>Esercitati nei Calcoli a Mente</h1>
@@ -30,27 +26,38 @@
             </div>
 
             <h2>Numero 1</h2>
-            <label for="integerDigits1">Cifre intere:</label>
-            <input type="number" id="integerDigits1" min="1" max="10" value="2">
-
-            <label for="decimalDigits1">Cifre decimali:</label>
-            <input type="number" id="decimalDigits1" min="0" max="5" value="0">
-
+            <div class="number-inputs">
+                <label for="integerDigits1">Cifre intere:</label>
+                <input type="number" id="integerDigits1" min="1" max="10" value="2" class="short-input" inputmode="numeric">
+            
+                <label for="decimalDigits1">Cifre decimali:</label>
+                <input type="number" id="decimalDigits1" min="0" max="5" value="0" class="short-input" inputmode="numeric">
+            
+                <label for="number1">Numero:</label>
+                <input type="text" id="number1" class="short-input" placeholder="Opzionale">
+            </div>
+            
             <h2>Numero 2</h2>
-            <label for="integerDigits2">Cifre intere:</label>
-            <input type="number" id="integerDigits2" min="1" max="10" value="2">
+            <div class="number-inputs">
+                <label for="integerDigits2">Cifre intere:</label>
+                <input type="number" id="integerDigits2" min="1" max="10" value="2" class="short-input" inputmode="numeric">
+            
+                <label for="decimalDigits2">Cifre decimali:</label>
+                <input type="number" id="decimalDigits2" min="0" max="5" value="0" class="short-input" inputmode="numeric">
+            
+                <label for="number2">Numero:</label>
+                <input type="text" id="number2" class="short-input" placeholder="Opzionale">
+            </div>
+            
 
-            <label for="decimalDigits2">Cifre decimali:</label>
-            <input type="number" id="decimalDigits2" min="0" max="5" value="0">
-
-            <button onclick="generaEsercizio()">Genera Esercizio</button>
+            <button class = "generate" onclick="generaEsercizio()">Genera Esercizio</button>
         </div>
 
         <div class="exercise">
             <p id="exerciseText">Premi "Genera Esercizio" per iniziare.</p>
             <input type="tel" id="userAnswer" placeholder="Risposta" inputmode="numeric" />
-            <button onclick="verificaRisposta()">Verifica Risposta</button>
-        </div>        
+            <button class="verify" onclick="verificaRisposta()">Verifica Risposta</button>
+        </div>
 
         <div id="result"></div>
     </div>
