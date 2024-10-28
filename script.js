@@ -73,14 +73,14 @@ function generaEsercizio() {
             break;
         case 'divisione':
             esercizioTesto = `${num1} ÷ ${num2}`;
-            risultatoCorretto = (num1 / num2).toFixed(2); // Formatta sempre con due cifre decimali
+            risultatoCorretto = (num1 / num2).toFixed(5); // Formatta sempre con due cifre decimali
             break;
     }
 
     // Mostra l'esercizio all'utente
     document.getElementById('exerciseText').innerText = esercizioTesto;
     // Salva il risultato corretto per la verifica, assicurandosi di mantenerlo come numero con due cifre decimali
-    document.getElementById('exerciseText').dataset.correctAnswer = parseFloat(risultatoCorretto).toFixed(2);
+    document.getElementById('exerciseText').dataset.correctAnswer = parseFloat(risultatoCorretto).toFixed(5);
 }
 
 function startTimer() {
@@ -94,7 +94,7 @@ function startTimer() {
 
 function verificaRisposta() {
     const rispostaCorretta = parseFloat(document.getElementById('exerciseText').dataset.correctAnswer);
-    const rispostaCorrettaFormattata = rispostaCorretta.toFixed(2); // Formatta la risposta con due cifre decimali
+    const rispostaCorrettaFormattata = rispostaCorretta.toFixed(5); // Formatta la risposta con due cifre decimali
 
     // Ferma il cronometro
     clearInterval(timerInterval);

@@ -5,7 +5,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -29,11 +29,11 @@ h1, h2 {
     margin-bottom: 15px;
 }
 
-.label, .number-inputs label {
-    display: inline-block;
-    margin: 10px 5px;
+.number-inputs label {
+    display: block;
     font-size: 1em;
     color: #ffffff;
+    margin-bottom: 5px;
 }
 
 .number-inputs {
@@ -41,10 +41,11 @@ h1, h2 {
     text-align: center;
 }
 
-.number-row {
+.input-row {
     display: flex;
     justify-content: center;
-    margin-bottom: 5px;
+    gap: 10px;
+    margin-bottom: 10px;
 }
 
 .short-input {
@@ -115,8 +116,20 @@ button.generate:hover, button.verify:hover {
 
 .input-group {
     display: flex;
+    flex-direction: column; /* Modificato per visualizzare le etichette sopra i bottoni */
+    align-items: center;
+}
+
+.input-buttons {
+    display: flex;
+    align-items: center; /* Modificato per allineare i bottoni e l'input su una linea */
+}
+
+.number-row {
+    display: flex;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .btn-increment, .btn-decrement {
@@ -136,36 +149,4 @@ button.generate:hover, button.verify:hover {
 #timer {
     font-size: 1.5em;
     margin: 10px 0;
-    color: #ffffff;
-}
-
-/* Media query per dispositivi mobili */
-@media (max-width: 600px) {
-    h1, h2 {
-        font-size: 1.3em;
-    }
-
-    .label, .number-inputs label {
-        font-size: 0.9em;
-    }
-
-    .container {
-        padding: 10px;
-    }
-
-    button {
-        padding: 8px 12px;
-        font-size: 0.9em;
-    }
-
-    .operations button {
-        width: 40px;
-        height: 40px;
-        font-size: 14px;
-    }
-
-    .short-input {
-        width: 40px;
-        font-size: 0.9em;
-    }
 }
