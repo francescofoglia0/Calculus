@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calcoli a Mente</title>
+        <link rel="stylesheet" href="styles.css">
+    
+        <!-- Meta tag per iOS per lanciare il sito a schermo intero -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <!-- Rimuove la barra di stato su iOS per un'esperienza più immersiva -->
+        <meta name="apple-mobile-web-app-status-bar-style" content="default">
+        <!-- Titolo visualizzato quando il sito è aggiunto alla schermata home -->
+        <meta name="apple-mobile-web-app-title" content="Calcoli a Mente">
+        <!-- Icona del sito quando aggiunto alla schermata home -->
+        <link rel="apple-touch-icon" href="icon.png">
+</head>
+    
+<body>
+    <div class="container">
+        <h1>Esercitati nei Calcoli a Mente</h1>
+        <div class="settings">
+
+            <h2>Scegli l'Operazione</h2>
+            <div class="operations">
+                <button onclick="selezionaOperazione('addizione')" id="btn-addizione">+</button>
+                <button onclick="selezionaOperazione('sottrazione')" id="btn-sottrazione">−</button>
+                <button onclick="selezionaOperazione('moltiplicazione')" id="btn-moltiplicazione">×</button>
+                <button onclick="selezionaOperazione('divisione')" id="btn-divisione">÷</button>
+            </div>
+
+            <h2>Numero 1</h2>
+            <label for="integerDigits1">Cifre intere:</label>
+            <input type="number" id="integerDigits1" min="1" max="10" value="2">
+
+            <label for="decimalDigits1">Cifre decimali:</label>
+            <input type="number" id="decimalDigits1" min="0" max="5" value="0">
+
+            <h2>Numero 2</h2>
+            <label for="integerDigits2">Cifre intere:</label>
+            <input type="number" id="integerDigits2" min="1" max="10" value="2">
+
+            <label for="decimalDigits2">Cifre decimali:</label>
+            <input type="number" id="decimalDigits2" min="0" max="5" value="0">
+
+            <button onclick="generaEsercizio()">Genera Esercizio</button>
+        </div>
+
+        <div class="exercise">
+            <p id="exerciseText">Premi "Genera Esercizio" per iniziare.</p>
+            <input type="tel" id="userAnswer" placeholder="Risposta" inputmode="numeric" />
+            <button onclick="verificaRisposta()">Verifica Risposta</button>
+        </div>        
+
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
