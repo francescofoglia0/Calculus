@@ -51,6 +51,7 @@ h1, h2 {
 .short-input {
     width: 50px;
     margin: 5px;
+    font-size: 16px;
     background-color: #2a2a2a;
     color: #ffffff;
     border: 1px solid #444;
