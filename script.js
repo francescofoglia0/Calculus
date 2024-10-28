@@ -1,4 +1,6 @@
 let operazioneSelezionata = null;
+let timerInterval; // Variabile per il cronometro
+let seconds = 0; // Variabile per i secondi
 
 function selezionaOperazione(operazione) {
     operazioneSelezionata = operazione;
@@ -12,6 +14,12 @@ function selezionaOperazione(operazione) {
 }
 
 function generaEsercizio() {
+    // Azzerare il cronometro
+    seconds = 0;
+    clearInterval(timerInterval);
+    document.getElementById('timer').innerText = "Tempo: 00:00";
+    startTimer(); // Avvia il cronometro
+
     if (!operazioneSelezionata) {
         alert("Seleziona prima un'operazione!");
         return;
@@ -75,6 +83,26 @@ function generaEsercizio() {
     document.getElementById('exerciseText').dataset.correctAnswer = parseFloat(risultatoCorretto).toFixed(2);
 }
 
+function startTimer() {
+    timerInterval = setInterval(() => {
+        seconds++;
+        const minutes = Math.floor(seconds / 60);
+        const secs = seconds % 60;
+        document.getElementById('timer').innerText = `Tempo: ${String(minutes).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+    }, 1000);
+}
+
+function verificaRisposta() {
+    const rispostaCorretta = parseFloat(document.getElementById('exerciseText').dataset.correctAnswer);
+    const rispostaCorrettaFormattata = rispostaCorretta.toFixed(2); // Formatta la risposta con due cifre decimali
+
+    // Ferma il cronometro
+    clearInterval(timerInterval);
+
+    // Mostra il risultato corretto all'utente
+    document.getElementById('result').innerText = `${rispostaCorrettaFormattata}`;
+    document.getElementById('result').style.color = 'white'; // Colore per il messaggio del risultato
+}
 
 
 function generaNumero(integerDigits, decimalDigits) {
@@ -83,21 +111,23 @@ function generaNumero(integerDigits, decimalDigits) {
     return parseFloat(`${integerPart}.${decimalPart}`);
 }
 
+function increment(id) {
+    const inputElement = document.getElementById(id);
+    const currentValue = parseInt(inputElement.value);
+    const max = parseInt(inputElement.max);
 
-function verificaRisposta() {
-    const rispostaUtente = parseFloat(document.getElementById('userAnswer').value);
-    const rispostaCorretta = parseFloat(document.getElementById('exerciseText').dataset.correctAnswer);
+    if (currentValue < max) {
+        inputElement.value = currentValue + 1;
+    }
+}
 
-    // Formatta la risposta corretta sempre con due cifre decimali
-    const rispostaCorrettaFormattata = rispostaCorretta.toFixed(2);
+function decrement(id) {
+    const inputElement = document.getElementById(id);
+    const currentValue = parseInt(inputElement.value);
+    const min = parseInt(inputElement.min);
 
-    // Verifica se la risposta è corretta con tolleranza per i decimali
-    if (Math.abs(rispostaUtente - parseFloat(rispostaCorrettaFormattata)) < 0.001) {
-        document.getElementById('result').innerText = 'Risposta corretta!';
-        document.getElementById('result').style.color = 'green';
-    } else {
-        document.getElementById('result').innerText = `Risposta errata! La risposta corretta era ${rispostaCorrettaFormattata}`;
-        document.getElementById('result').style.color = 'red';
+    if (currentValue > min) {
+        inputElement.value = currentValue - 1;
     }
 }
 

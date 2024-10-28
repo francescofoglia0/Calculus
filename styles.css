@@ -107,3 +107,30 @@ button:hover {
     font-weight: bold;
     color: #ffffff; /* Colore chiaro per i risultati */
 }
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-increment, .btn-decrement {
+    background-color: #444; /* Sfondo scuro per i bottoni */
+    color: #fff; /* Testo chiaro */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn-increment:hover, .btn-decrement:hover {
+    background-color: #666; /* Sfondo più chiaro al passaggio del mouse */
+}
+
+#timer {
+    font-size: 24px; /* Dimensione del testo del cronometro */
+    margin: 10px 0; /* Spaziatura attorno al cronometro */
+    color: #ffffff; /* Colore del testo */
+}
+

@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Esercitati nei Calcoli a Mente</h1>
+        <h1>Calculus</h1>
         <div class="settings">
 
             <h2>Scegli l'Operazione</h2>
@@ -25,29 +25,48 @@
                 <button onclick="selezionaOperazione('divisione')" id="btn-divisione">÷</button>
             </div>
 
-            <h2>Numero 1</h2>
-            <div class="number-inputs">
-                <label for="integerDigits1">Cifre intere:</label>
-                <input type="number" id="integerDigits1" min="1" max="10" value="2" class="short-input" inputmode="numeric">
-            
-                <label for="decimalDigits1">Cifre decimali:</label>
-                <input type="number" id="decimalDigits1" min="0" max="5" value="0" class="short-input" inputmode="numeric">
-            
-                <label for="number1">Numero:</label>
-                <input type="text" id="number1" class="short-input" placeholder="Opzionale">
-            </div>
-            
-            <h2>Numero 2</h2>
-            <div class="number-inputs">
-                <label for="integerDigits2">Cifre intere:</label>
-                <input type="number" id="integerDigits2" min="1" max="10" value="2" class="short-input" inputmode="numeric">
-            
-                <label for="decimalDigits2">Cifre decimali:</label>
-                <input type="number" id="decimalDigits2" min="0" max="5" value="0" class="short-input" inputmode="numeric">
-            
-                <label for="number2">Numero:</label>
-                <input type="text" id="number2" class="short-input" placeholder="Opzionale">
-            </div>
+            <!-- Numero 1 -->
+<h2>Numero 1</h2>
+<div class="number-inputs">
+    <label for="integerDigits1">Cifre intere:</label>
+    <div class="input-group">
+        <button type="button" class="btn-decrement" onclick="decrement('integerDigits1')">−</button>
+        <input type="number" id="integerDigits1" min="1" max="10" value="2" class="short-input" inputmode="numeric">
+        <button type="button" class="btn-increment" onclick="increment('integerDigits1')">+</button>
+    </div>
+    
+    <label for="decimalDigits1">Cifre decimali:</label>
+    <div class="input-group">
+        <button type="button" class="btn-decrement" onclick="decrement('decimalDigits1')">−</button>
+        <input type="number" id="decimalDigits1" min="0" max="5" value="0" class="short-input" inputmode="numeric">
+        <button type="button" class="btn-increment" onclick="increment('decimalDigits1')">+</button>
+    </div>
+    
+    <label for="number1">Numero:</label>
+    <input type="text" id="number1" class="short-input" placeholder="Opzionale" inputmode="numeric">
+</div>
+
+<!-- Numero 2 -->
+<h2>Numero 2</h2>
+<div class="number-inputs">
+    <label for="integerDigits2">Cifre intere:</label>
+    <div class="input-group">
+        <button type="button" class="btn-decrement" onclick="decrement('integerDigits2')">−</button>
+        <input type="number" id="integerDigits2" min="1" max="10" value="2" class="short-input" inputmode="numeric">
+        <button type="button" class="btn-increment" onclick="increment('integerDigits2')">+</button>
+    </div>
+    
+    <label for="decimalDigits2">Cifre decimali:</label>
+    <div class="input-group">
+        <button type="button" class="btn-decrement" onclick="decrement('decimalDigits2')">−</button>
+        <input type="number" id="decimalDigits2" min="0" max="5" value="0" class="short-input" inputmode="numeric">
+        <button type="button" class="btn-increment" onclick="increment('decimalDigits2')">+</button>
+    </div>
+    
+    <label for="number2">Numero:</label>
+    <input type="text" id="number2" class="short-input" placeholder="Opzionale" inputmode="numeric">
+</div>
+
             
 
             <button class = "generate" onclick="generaEsercizio()">Genera Esercizio</button>
@@ -55,9 +74,12 @@
 
         <div class="exercise">
             <p id="exerciseText">Premi "Genera Esercizio" per iniziare.</p>
-            <input type="tel" id="userAnswer" placeholder="Risposta" inputmode="numeric" />
+            <div id="timer">Tempo: 00:00</div> <!-- Elemento per il cronometro -->
             <button class="verify" onclick="verificaRisposta()">Verifica Risposta</button>
+            <p id="result"></p> <!-- Elemento per mostrare il risultato -->
         </div>
+        
+        
 
         <div id="result"></div>
     </div>
